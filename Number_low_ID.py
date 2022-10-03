@@ -12,12 +12,12 @@ data_file = open('number_file/'+'number_low_point_contrast_psychopy'+'.csv','w',
 writer = csv.writer(data_file)
 writer.writerow(["Pos_Current","WIDTH","distance","ID"])
 #生成点的范围
-x_min = 2
-x_max = 15.2
-y_min = 2
-y_max = 11
+x_min = 0.5
+x_max = 18.5 #(x_max -x_min + w) *base < 1920
+y_min = 0.5
+y_max = 10 #(y_max -y_min + w) *base < 1080
 w = 1
-base = 80
+base = 100
 d = 2
 ID = math.log(2 * d/w, 2)
 
@@ -31,7 +31,7 @@ while i <= 31:
         y_n = round(y_pre - math.sqrt(4 - numpy.square(x - x_pre)),3)
         y = random.choice([y_n,y_p])#一正一负，，随机挑，距离为2base
         if y_min < y < y_max:
-            writer.writerow([[round(x * base - (17.2 * base ) / 2, 0), round(y * base - (13 * base) / 2, 0)], w * base, d, round (ID,3)])  # 转换成psychopy里面的坐标
+            writer.writerow([[round(x * base - (17.2 * base ) / 2, 0), round(y * base - (13 * base) / 2, 0)], w * base, d *base, round (ID,3)])  # 转换成psychopy里面的坐标
             x_pre = x
             y_pre = y
             i += 1
