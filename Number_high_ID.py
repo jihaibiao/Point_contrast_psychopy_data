@@ -31,7 +31,7 @@ while i <= 31:
         y_n = round(y_pre - math.sqrt(100 - numpy.square(x - x_pre)),3)
         y = random.choice([y_n,y_p])#一正一负，，随机挑
         if y_min < y < y_max:
-            writer.writerow([[round(x * base - (17.2 * base ) / 2, 0), round(y * base - (13 * base) / 2, 0)], w * base, d *base ,round (ID,3)])  # 转换成psychopy里面的坐标
+            writer.writerow([[round(x * base - 960, 0), round( 540 - y * base, 0)], w * base, d *base ,round (ID,3)])  # 转换成psychopy里面的坐标
             x_pre = x
             y_pre = y
             i += 1
