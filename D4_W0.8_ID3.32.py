@@ -11,15 +11,18 @@ if not os.path.exists('number_file'):
 data_file = open('number_file/'+'D4_W0.8_point_contrast_psychopy'+'.csv','w',encoding='UTF-8',newline='')
 writer = csv.writer(data_file)
 writer.writerow(["Pos_Current","WIDTH","distance","ID"])
-#生成点的范围
-x_min = 0.5
-x_max = 18.5 #(x_max -x_min + w) *base < 1920
-y_min = 0.5
-y_max = 10 #(y_max -y_min + w) *base < 1080
+
+
 w = 0.8  #圆的直径（width）
 base = 100 #倍数
 d = 4 #距离为10base
 ID = math.log(2 * d/w, 2)
+
+#生成点的范围
+x_min = w/2
+x_max = 1920/base -w +x_min
+y_min = w/2
+y_max = 1080/base -w +y_min
 
 i = 1
 x_pre = 9
